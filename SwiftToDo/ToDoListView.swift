@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ToDoListView: View {
+    @EnvironmentObject var storage: ToDoStorage
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach([ToDoItem(title: "Write Code", important: true), ToDoItem(title: "Watch Anime", important: true), ToDoItem(title: "Sleep", important: false)]) { todo in
+                ForEach(storage.toDos) { todo in
                     HStack {
                         switch(todo.status) {
                         case ToDoItemStatus.needToDo:
@@ -40,7 +42,10 @@ struct ToDoListView: View {
 }
 
 struct ToDoListView_Previews: PreviewProvider {
+    static var testItems: Array<ToDoItem> = [ToDoItem(title: "Watch Anime", important: true, status: .needToDo), ToDoItem(title: "Write Code", important: true, status: .inProgress), ToDoItem(title: "Sleep", important: false, status: .needToDo)]
+    static var storage: ToDoStorage = ToDoStorage(toDos: testItems);
+    
     static var previews: some View {
-        ToDoListView()
+        ToDoListView().environmentObject(storage)
     }
 }

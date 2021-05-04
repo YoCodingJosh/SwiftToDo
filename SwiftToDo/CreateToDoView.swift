@@ -14,6 +14,8 @@ struct CreateToDoView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @EnvironmentObject var storage: ToDoStorage
+    
     var body: some View {
         List {
             Section(header: Text("Task Name")) {
@@ -39,6 +41,7 @@ struct CreateToDoView: View {
                     Spacer()
                     
                     Button("Save") {
+                        self.storage.toDos.append(ToDoItem(title: self.title, important: self.important, status: self.status))
                         self.presentationMode.wrappedValue.dismiss()
                     }.disabled(self.title.isEmpty)
                     
@@ -51,6 +54,6 @@ struct CreateToDoView: View {
 
 struct CreateToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateToDoView()
+        CreateToDoView().environmentObject(ToDoListView_Previews.storage)
     }
 }
