@@ -31,7 +31,7 @@ struct ToDoListView: View {
                     }
                 }
             }.navigationTitle("Your To Do List").navigationBarItems(trailing: NavigationLink(
-                destination: ToDoListView()) {
+                destination: CreateToDoView()) {
                 Image(systemName: "plus.circle.fill")
                 Text("Add")
             })
