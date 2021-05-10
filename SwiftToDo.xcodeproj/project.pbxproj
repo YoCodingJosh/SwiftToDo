@@ -14,6 +14,7 @@
 		02581190264089E7005CCAC0 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258118F264089E7005CCAC0 /* ToDoItem.swift */; };
 		02884A542641870000E2C6CB /* CreateToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02884A532641870000E2C6CB /* CreateToDoView.swift */; };
 		02912C352641AF230050CD2D /* ToDoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02912C342641AF230050CD2D /* ToDoStorage.swift */; };
+		02E95D8D2649C7EC009077A9 /* QuickActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E95D8C2649C7EC009077A9 /* QuickActionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0258118F264089E7005CCAC0 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		02884A532641870000E2C6CB /* CreateToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoView.swift; sourceTree = "<group>"; };
 		02912C342641AF230050CD2D /* ToDoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoStorage.swift; sourceTree = "<group>"; };
+		02E95D8C2649C7EC009077A9 /* QuickActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0258118F264089E7005CCAC0 /* ToDoItem.swift */,
 				02884A532641870000E2C6CB /* CreateToDoView.swift */,
 				02912C342641AF230050CD2D /* ToDoStorage.swift */,
+				02E95D8C2649C7EC009077A9 /* QuickActionView.swift */,
 			);
 			path = SwiftToDo;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				02912C352641AF230050CD2D /* ToDoStorage.swift in Sources */,
 				0258118326405D0B005CCAC0 /* ToDoListView.swift in Sources */,
+				02E95D8D2649C7EC009077A9 /* QuickActionView.swift in Sources */,
 				02884A542641870000E2C6CB /* CreateToDoView.swift in Sources */,
 				0258118126405D0B005CCAC0 /* SwiftToDoApp.swift in Sources */,
 				02581190264089E7005CCAC0 /* ToDoItem.swift in Sources */,

@@ -10,6 +10,24 @@ import SwiftUI
 struct ToDoListView: View {
     @EnvironmentObject var storage: ToDoStorage
     
+    @GestureState var isDetectingLongPress = false
+    @State var gestureFinished = false
+    @State var canShowQuickAction = false
+    
+    var longPress: some Gesture {
+        LongPressGesture(minimumDuration: 1)
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                                               transaction in
+                gestureState = currentState
+                canShowQuickAction = isDetectingLongPress && gestureFinished
+            }
+            .onEnded { finished in
+                self.gestureFinished.toggle()
+                
+                canShowQuickAction = isDetectingLongPress && gestureFinished
+            }
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -30,9 +48,13 @@ struct ToDoListView: View {
                         }
                         Spacer()
                         Text(todo.important ? "‼️" : "")
-                    }
+                    }.gesture(longPress)
                 }
-            }.navigationTitle("Your To Do List").navigationBarItems(trailing: NavigationLink(
+                Text("Is Long Press? " + ($isDetectingLongPress.wrappedValue ? "yes" : "no"))
+                Text("Is Gesture Finished? " + ($gestureFinished.wrappedValue ? "yes" : "no"))
+                Text("Show Quick Edit View? " + ($canShowQuickAction.wrappedValue ? "yes" : "no"))
+            }
+            .navigationTitle("Your To Do List").navigationBarItems(trailing: NavigationLink(
                 destination: CreateToDoView()) {
                 Image(systemName: "plus.circle.fill")
                 Text("Add")
