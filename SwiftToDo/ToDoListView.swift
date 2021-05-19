@@ -33,11 +33,13 @@ struct ToDoListView: View {
                             }
                             Spacer()
                             Text(todo.important ? "‼️" : "")
+                        }.contentShape(Rectangle()).onTapGesture {
+                            if (!showQuickActionView) {
+                                print("go to edit screen for item")
+                            }
                         }.simultaneousGesture(LongPressGesture(minimumDuration: 0.25).onEnded { _ in
                             self.showQuickActionView.toggle()
-                        }).onTapGesture {
-                            print("go to edit screen for item")
-                        }
+                        })
                         self.showQuickActionView ? VStack {
                             Spacer()
                             QuickActionView()
