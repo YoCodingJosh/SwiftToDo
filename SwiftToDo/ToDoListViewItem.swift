@@ -34,12 +34,14 @@ struct ToDoListViewItem: View {
                 print("go to edit screen for item")
             }
         }.simultaneousGesture(LongPressGesture(minimumDuration: 0.25).onEnded { _ in
-            self.showQuickActionView.toggle()
+            withAnimation {
+                self.showQuickActionView.toggle()
+            }
         })
         self.showQuickActionView ? VStack {
             Spacer()
             QuickActionView()
-        } : nil
+        }.animation(.easeInOut) : nil
     }
 }
 

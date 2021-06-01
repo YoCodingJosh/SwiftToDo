@@ -10,6 +10,8 @@ import SwiftUI
 struct ToDoListView: View {
     @EnvironmentObject var storage: ToDoStorage
     
+    @State var showingQuickActionView: Bool = false
+    
     var body: some View {
         NavigationView {
             List {
